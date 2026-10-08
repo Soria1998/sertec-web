@@ -720,21 +720,20 @@ src="https://www.facebook.com/tr?id=1799906151193998&ev=PageView&noscript=1"
   }
 
   function redirigirAlContactoConMensaje(mensaje) {
-    // Nombres predeterminados para ejemplos
-    const nombres = ['Miguel Soria', 'Jorge García', 'Carlos López', 'Ana Rodríguez'];
-    const nombreAleatorio = nombres[Math.floor(Math.random() * nombres.length)];
+    // Mostrar ejemplos como placeholder (texto transparente)
+    document.getElementById('nombre').placeholder = 'Ej: Tu nombre';
+    document.getElementById('mensaje').placeholder = 'Ej: ' + mensaje;
 
-    // Rellenar formulario con el mensaje específico del servicio
-    document.getElementById('nombre').value = nombreAleatorio;
-    document.getElementById('mensaje').value = mensaje;
+    // Limpiar los campos para que el usuario vea solo el placeholder
+    document.getElementById('nombre').value = '';
+    document.getElementById('mensaje').value = '';
 
     // Scroll suave a la sección de contacto
     document.getElementById('contacto').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-    // Enfocar el campo de nombre para que el usuario pueda editar
+    // Enfocar el campo de nombre
     setTimeout(() => {
       document.getElementById('nombre').focus();
-      document.getElementById('nombre').select();
     }, 500);
   }
 </script>
